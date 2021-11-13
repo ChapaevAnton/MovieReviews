@@ -19,7 +19,7 @@ class ReviewsPagingSource @Inject constructor(
     override fun getRefreshKey(state: PagingState<Int, Review>): Int? {
         val anchorPosition = state.anchorPosition ?: return null
         val anchorPage = state.closestPageToPosition(anchorPosition) ?: return null
-        return anchorPage.prevKey?.plus(1) ?: anchorPage.nextKey?.minus(1)
+        return anchorPage.prevKey?.plus(PAGE_STEP) ?: anchorPage.nextKey?.minus(PAGE_STEP)
     }
 
     override fun loadSingle(params: LoadParams<Int>): Single<LoadResult<Int, Review>> {
@@ -35,6 +35,7 @@ class ReviewsPagingSource @Inject constructor(
     }
 
     companion object {
-        const val INITIAL_PAGE = 1
+        const val INITIAL_PAGE = 0
+        const val PAGE_STEP = 20
     }
 }

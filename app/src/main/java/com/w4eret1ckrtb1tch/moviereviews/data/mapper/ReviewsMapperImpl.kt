@@ -3,6 +3,7 @@ package com.w4eret1ckrtb1tch.moviereviews.data.mapper
 import androidx.paging.PagingSource
 import com.w4eret1ckrtb1tch.moviereviews.data.dto.MovieReviewsResponse
 import com.w4eret1ckrtb1tch.moviereviews.data.dto.ReviewDto
+import com.w4eret1ckrtb1tch.moviereviews.data.repository.ReviewsPagingSource.Companion.PAGE_STEP
 import com.w4eret1ckrtb1tch.moviereviews.domain.entity.MovieReviews
 import com.w4eret1ckrtb1tch.moviereviews.domain.entity.Review
 import com.w4eret1ckrtb1tch.moviereviews.domain.mapper.ReviewsMapper
@@ -17,8 +18,8 @@ class ReviewsMapperImpl @Inject constructor() :
     ): PagingSource.LoadResult<Int, Review> {
         return PagingSource.LoadResult.Page(
             data = mapResponse(movieReviewsResponse.reviewResponse ?: emptyList()),
-            prevKey = if (page == 1) null else page.minus(1),
-            nextKey = if (movieReviewsResponse.hasMore == false) null else page.plus(1)
+            prevKey = if (page == 0) null else page.minus(PAGE_STEP),
+            nextKey = if (movieReviewsResponse.hasMore == false) null else page.plus(PAGE_STEP)
         )
     }
 
