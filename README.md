@@ -5,6 +5,10 @@
 
 Создать приложение для просмотра списка фильмов в виде ленты
 
+### Время выполнения: 6 часов
+
+![image](https://user-images.githubusercontent.com/69672210/141643511-53d0f487-8b41-4280-862f-8595d60c7049.png)
+
 Язык Kotlin
 
 Для ленты используем RecyclerView, для вызова api используем retrofit, для картинок glide или что-то аналогичное
@@ -30,5 +34,3 @@ https://api.nytimes.com/svc/movies/v2/reviews/all.json
 Список фильмов отображаем в RecyclerView. Реализовываем пагинацию!
 
 Для быстрой оценки проекта, пожалуйста, оставьте ключ api в build.gradle в дебаг ветке
-
-![image](https://user-images.githubusercontent.com/69672210/141643511-53d0f487-8b41-4280-862f-8595d60c7049.png)
